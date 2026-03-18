@@ -14,7 +14,7 @@ services:
     networks:
       - backend-zone  # (1.6) ต้องเชื่อมกับวงปิดสำหรับ DB
     volumes:
-      - db-storage:var/lib/mysql  # (1.7) เติมชื่อ Named Volume ที่ประกาศด้านล่าง [5.1]
+      - db-storage:/var/lib/mysql  # (1.7) เติมชื่อ Named Volume ที่ประกาศด้านล่าง [5.1]
     secrets:
       - db_root_pass # (1.8) เติมชื่อ Secret ที่ประกาศด้านล่าง [10]
 
@@ -76,8 +76,8 @@ volumes:
 
 configs:
   my-nginx-conf:
-file: ./nginx/my-nginx.conf # (5.2) เติมชื่อโฟลเดอร์ที่เก็บไฟล์คอนฟิก
+    file: ./nginx/my-nginx.conf # (5.2) เติมชื่อโฟลเดอร์ที่เก็บไฟล์คอนฟิก
 
 secrets:
   db_root_pass:
-file: ./secret/.db_pass_pass.txt # (5.3) เติมชื่อโฟลเดอร์และไฟล์ที่เก็บรหัสผ่านของฐานข้อมูล
+    file: ./secret/.db_pass_pass.txt # (5.3) เติมชื่อโฟลเดอร์และไฟล์ที่เก็บรหัสผ่านของฐานข้อมูล
